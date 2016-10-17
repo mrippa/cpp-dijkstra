@@ -54,9 +54,9 @@ namespace graph {
             bool adjacent ( Node& x, Node& y);		// tests whether there is an edge from node x to node y.
             void neighbors ( Node& x);		        // lists all nodes y such that there is an edge from x to y.
             //void addEdge ( int x, int y);		// adds to G the edge from x to y, if it is not there.
-            void addEdge ( const Node*& x, const Node*& y);		// adds to G the edge from x to y, if it is not there.
-            void deleteEdge ( const Node*& x, const Node*& y);	// removes the edge from x to y, if it is there.
-            int get_node_value ( const Node*& x);		// returns the value associated with the node x.
+            void addEdge ( const Node& x, const Node& y);		// adds to G the edge from x to y, if it is not there.
+            void deleteEdge ( const Node& x, const Node& y);	// removes the edge from x to y, if it is there.
+            int get_node_value ( const Node& x);		// returns the value associated with the node x.
             void set_node_value(  Node& x, int a);	// sets the value associated with the node x to a.
             int get_edge_value( Node& x, Node& y);	// returns the value associated to the edge (x,y).
             void set_edge_value ( Node& x, Node& y, double v);	// sets the value associated to the edge (x,y) to v.

@@ -1,10 +1,10 @@
 #include <iostream>
 
 #include "Edge.h"
-#include "Node.h"
-std::ostream& operator<< (std::ostream& o, const Edge*& e) {
+std::ostream& operator<< (std::ostream& o, const Edge& e) {
 
-    o << "Edge:<" << e->getXnode() << ", "<< e->getYnode() <<">" ;
+    const Node n1 = e.getXnode();
+    o << "Edge:<" << n1 << ", "<< e.getYnode() <<": "<< e.getCost()<<">" ;
     return o;
 }
 

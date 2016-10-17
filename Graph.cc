@@ -31,10 +31,10 @@ namespace graph {
         if (graph != nullptr) {
             //iterate through gsize rows
             for (int i=0; i<gsize; ++i) {
-                const Node* a = *(nodes.data() +i);
+                const Node a = (nodes.data() +i);
 
                 for (int j=0; j<gsize; j++) {
-                    const Node* b = *(nodes.data() + j);
+                    const Node b = (nodes.data() + j);
                     if (graph[i][j] == true) //these nodes are connected, deleteEdge(i,j)
                         deleteEdge(a, b);
                 }
@@ -75,8 +75,8 @@ namespace graph {
         for (int i=0; i<gsize; ++i) {
             for (int j=i; j<gsize; ++j) {
                 if (graph[i][j] == true) {
-                    const Node* a = *(nodes.data()+i);
-                    const Node* b = *(nodes.data()+j);
+                    const Node a = (nodes.data()+i);
+                    const Node b = (nodes.data()+j);
                     addEdge(a,b);
                 }
 
@@ -112,8 +112,8 @@ namespace graph {
 
     // adds to G the edge from x to y, if it is not there.
     //void Graph::addEdge ( int x, int y) {
-    void Graph::addEdge ( const Node*& x, const Node*& y) {
-        Edge* e = new Edge( x, y, 2);
+    void Graph::addEdge ( const Node& x, const Node& y) {
+        Edge e = new Edge( x, y, 2);
         edges.push_back( e);// list of edges;
     }
 
@@ -124,13 +124,13 @@ namespace graph {
         std::cout << y << std::endl;
 
         //Edge* e = edges.data();
-        Edge* e;
+        Edge e;
         for(int i=0; i < edges.size() ; ++i)
-            e = *(edges.data() + i);
+            e = static_cast<Node>(edges.data() + i);
             
             //We compare two Nodes here... see overloaded Node::operator==(...)
-            if(e->getXnode() == x) 
-                if(e->getYnode() == y) 
+            if(e.getXnode() == x) 
+                if(e.getYnode() == y) 
                     std::cout << "." << e << std::endl;
     }
 

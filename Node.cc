@@ -2,15 +2,20 @@
 
 #include "Node.h"
 
-std::ostream& operator<< (std::ostream& o, const Node*& n) {
+std::ostream& operator<< (std::ostream& o, const Node& n) {
 
-    if (&n != nullptr) 
-        o << "node [" << n->getId() << "]=" ;
+    if (n != -1 ) 
+        o << "[" << n.getId() << "]" ;
     else
         o << "###";
 
     return o;
 
+}
+
+bool operator!=( const Node& lhs, int rhs) {
+
+    return lhs.getId() != rhs;
 }
 
 bool operator==( const Node& lhs, const Node& rhs) {
